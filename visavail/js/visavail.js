@@ -304,10 +304,6 @@ function visavailChart() {
           }
         });
 
-      xScale.ticks().forEach(d => {
-        console.log(xScale(d));
-      });
-
       // create vertical grid
       if (noOfDatasets) {
         svg
