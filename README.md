@@ -243,10 +243,6 @@ Visavail.js depends on a couple of libraries:
 - [Moment.js](http://momentjs.com/) for formatting dates in tooltips and
 - [Font Awesome](http://fontawesome.io) for icons in the tooltips.
 
-## Contribution
-
-I am happy about any contribution or feedback. Please let me know about your comments via the Issues tab on [GitHub](https://github.com/flrs/visavail/issues).
-
 ## License
 
 The Visavail.js library is distributed under the [MIT License (MIT)](https://github.com/flrs/visavail/blob/master/LICENSE.md). Please also take note of the licenses of the dependencies.
