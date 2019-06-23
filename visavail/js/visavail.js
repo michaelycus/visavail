@@ -304,6 +304,10 @@ function visavailChart() {
           }
         });
 
+      xScale.ticks().forEach(d => {
+        console.log(xScale(d));
+      });
+
       // create vertical grid
       if (noOfDatasets) {
         svg
@@ -312,21 +316,21 @@ function visavailChart() {
           .data(xScale.ticks())
           .enter()
           .append("line")
-          .attr({
-            class: "vert_grid",
-            x1: function(d) {
-              return xScale(d);
-            },
-            x2: function(d) {
-              return xScale(d);
-            },
-            y1: 0,
-            y2:
-              dataHeight * noOfDatasets +
+          .attr("class", "vert_grid")
+          .attr("x1", function(d) {
+            return xScale(d);
+          })
+          .attr("x2", function(d) {
+            return xScale(d);
+          })
+          .attr("y1", 0)
+          .attr(
+            "y2",
+            dataHeight * noOfDatasets +
               lineSpacing * noOfDatasets -
               1 +
               paddingBottom
-          });
+          );
       }
 
       // create horizontal grid
@@ -336,20 +340,14 @@ function visavailChart() {
         .data(dataset)
         .enter()
         .append("line")
-        .attr({
-          class: "horz_grid",
-          x1: 0,
-          x2: width,
-          y1: function(d, i) {
-            return (
-              (lineSpacing + dataHeight) * i + lineSpacing + dataHeight / 2
-            );
-          },
-          y2: function(d, i) {
-            return (
-              (lineSpacing + dataHeight) * i + lineSpacing + dataHeight / 2
-            );
-          }
+        .attr("class", "horz_grid")
+        .attr("x1", 0)
+        .attr("x2", width)
+        .attr("y1", function(d, i) {
+          return (lineSpacing + dataHeight) * i + lineSpacing + dataHeight / 2;
+        })
+        .attr("y2", function(d, i) {
+          return (lineSpacing + dataHeight) * i + lineSpacing + dataHeight / 2;
         });
 
       // create x axis
